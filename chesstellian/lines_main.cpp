@@ -15,7 +15,7 @@ int main() {
   Tree tree;
   Tree* treeptr = &tree;
   
-  if (build_tree(treeptr, position, WHITE)) {
+  if (build_tree(treeptr, position, WHITE, true)) {
     expand_tree(treeptr, DEPTH);
     std::vector<std::vector<Move>> lines = get_lines(treeptr, DEPTH);
     

@@ -30,7 +30,7 @@ namespace tree_internal {
   };
 }
 
-bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t player_to_move); //, bool check_for_check);
+bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t player_to_move, bool check_for_check);
 
 void expand_tree(Tree* tree, uint32_t depth);
 

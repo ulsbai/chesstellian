@@ -12,9 +12,9 @@
  * Returns whether or not board represents a valid position
  * aka player_to_move is not in check
  */
-bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t player_to_move) { // , bool check_for_check) {
-  Tree new_tree;
-  tree = &new_tree;
+bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t player_to_move, bool check_for_check) {
+  //Tree new_tree;
+  //tree = &new_tree;
   
   tree->board = board;
   tree->player_to_move = player_to_move;
@@ -26,16 +26,16 @@ bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t playe
     if (board[m.new_index.rank][m.new_index.file].piece == KING)
       return false;
     
-    //if (check_for_check) {
-    std::vector<std::vector<Square>> subboard = move_copy_board(board, m);
-    
-    Tree subtree;
-    node.subtree = &subtree;
-    
-    if (build_tree(node.subtree, subboard, enemy(player_to_move))){
-      tree->nodes.push_back(node);
+    if (check_for_check) {
+      std::vector<std::vector<Square>> subboard = move_copy_board(board, m);
+      
+      Tree subtree;
+      node.subtree = &subtree;
+      
+      if (build_tree(node.subtree, subboard, enemy(player_to_move), false)){
+        tree->nodes.push_back(node);
+      }
     }
-    //}
     else tree->nodes.push_back(node);
   }
     
@@ -58,7 +58,7 @@ void expand_tree(Tree* tree, uint32_t depth) {
     
     if (task.depth > 0) {
       if (task.tree == nullptr) {
-        build_tree(task.tree, task.board, task.player_to_move); // must return true
+        build_tree(task.tree, task.board, task.player_to_move, true); // must return true
       }
       
       for (Node node: task.tree->nodes) {

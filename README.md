@@ -3,7 +3,7 @@ Chesstellian is a chess engine that I am working on making. It should eventually
 
 ## Usage
 To test out this program, install it with a sequence of commands such as the following:\
-`git clone https://github.com/ulsbai/chesstellian\n
+`git clone https://github.com/ulsbai/chesstellian'
 cd chesstellian/chesstellian\n
 make`
 

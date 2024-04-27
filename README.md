@@ -3,15 +3,15 @@ Chesstellian is a chess engine that I am working on making. It should eventually
 
 ## Usage
 To test out this program, install it with a sequence of commands such as the following:\
-`git clone https://github.com/ulsbai/chesstellian'
-cd chesstellian/chesstellian\n
-make`
+`git clone https://github.com/ulsbai/chesstellian`\
+`cd chesstellian/chesstellian`\
+`make`
 
-Now you can run it:
+Now you can run it:\
 `./chesstellian`
 
 ## Debugging
-Currently the Makefile is configured to use debugging mode, so you can run the program in the debugger by:
+Currently the Makefile is configured to use debugging mode, so you can run the program in the debugger by:\
 `gdb chesstellian`
 
 In the debugger, type `run` to run the program.

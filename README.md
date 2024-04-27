@@ -1,5 +1,5 @@
 # chesstellian
-Chesstellian is a chess engine that I am working on making. It should eventually be able to play and analyze chess games at a reasonable strength. Now it is programmed to print all the possible sequences of moves following the start position, looking 2 moves ahead. For some reason when I test it on my Raspberry Pi it is segment faulting. I think this is because the program is running out of memory.
+Chesstellian is a chess engine that I am working on making. It should eventually be able to play and analyze chess games at a reasonable strength. Now it is programmed to print all the possible sequences of moves following the start position, looking 2 moves ahead. For some reason when I test it on my Raspberry Pi it is aborting.
 
 ## Usage
 To test out this program, install it with a sequence of commands such as the following:\

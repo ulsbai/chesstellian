@@ -7,7 +7,7 @@
 #include "tree.h"
 #include "format.h"
 
-uint32_t DEPTH = 1;
+#define DEPTH 3
 
 int main() {
   std::vector<std::vector<Square>> position = get_start_position();
@@ -17,7 +17,9 @@ int main() {
   
   if (build_tree(treeptr, position, WHITE, true)) {
     expand_tree(treeptr, DEPTH);
-    std::vector<std::vector<Move>> lines = get_lines(treeptr, DEPTH);
+    std::vector<std::vector<Move>> lines = get_lines(treeptr);
+    
+    std::cout << "lines.size()=" << (int) lines.size() << '\n';
     
     for (std::vector<Move> line: lines) {
       std::string fline = format::f_line::stockfish(line);

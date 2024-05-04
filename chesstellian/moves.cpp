@@ -9,6 +9,8 @@
 #include "pieces.h"
 #include "moves.h"
 
+#include <iostream> // temporary, for testing
+
 /*
  * Section Depricated
  * 
@@ -49,6 +51,8 @@ bool is_in_check(std::vector<std::vector<Square>> board, int8_t colour){
 
 //
 
+/*
+ * Depricated
 std::vector<std::vector<Square>> move_copy_board(std::vector<std::vector<Square>> board, Move m) {
   std::vector<std::vector<Square>> result;
   
@@ -72,16 +76,14 @@ std::vector<std::vector<Square>> move_copy_board(std::vector<std::vector<Square>
   
   return result;
 }
-
-/*
- * Depricated
-void Move_board(std::vector<std::vector<Square>>* board, Move m) {
-  int8_t colour = board[m.old_index.rank][m.old_index.file].colour;
-  board[m.old_index] = nullptr;
-  Square s = create_square(m.colour, m.new_piece);
-  board[m.new_index] = &s;
-}
 */
+
+void move_board(std::vector<std::vector<Square>> board, Move m) {
+  //std::cout << "move_board:" << std::flush << (int) board.size() << std::flush << ' ' << (int) board[0].size() << std::flush << ' ' << (int) m.old_index.rank << ' ' << (int) m.old_index.file << '\n';
+  int8_t colour = board[m.old_index.rank][m.old_index.file].colour;
+  board[m.old_index.rank][m.old_index.file].colour = EMPTY;
+  board[m.new_index.rank][m.new_index.file] = create_square(m.colour, m.new_piece);
+}
 
 std::vector<Move> get_moves(std::vector<std::vector<Square>> board, int8_t colour) { //, bool count_check) {
   std::vector<Move> result = {};

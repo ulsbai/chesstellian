@@ -13,7 +13,7 @@ struct Tree {
 
 struct Node {
   Move move;
-  Tree* subtree = nullptr;
+  Tree* subtree;
 };
 
 namespace tree_internal {
@@ -34,4 +34,4 @@ bool build_tree(Tree* tree, std::vector<std::vector<Square>> board, int8_t playe
 
 void expand_tree(Tree* tree, uint32_t depth);
 
-std::vector<std::vector<Move>> get_lines(Tree* tree, uint32_t depth);
+std::vector<std::vector<Move>> get_lines(Tree* tree);
